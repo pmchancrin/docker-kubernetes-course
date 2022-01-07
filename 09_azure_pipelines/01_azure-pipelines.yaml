@@ -16,9 +16,9 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      docker build -t acrforakscluster.azurecr.io/webapp:$(tag) app-dotnet
-      az acr login -n acrforakscluster
-      docker push acrforakscluster.azurecr.io/webapp:$(tag)
+      docker build -t piermickregistry.azurecr.io/webapp:$(tag) app-dotnet
+      az acr login -n piermickaks
+      docker push piermickregistry.azurecr.io/webapp:$(tag)
 - task: qetza.replacetokens.replacetokens-task.replacetokens@3
   displayName: 'Replace Image TAG'
   inputs:
@@ -41,8 +41,8 @@ steps:
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'aks-spn-ca'
-    azureResourceGroup: 'rg-aks-cluster'
-    kubernetesCluster: 'aks-cluster'
+    azureResourceGroup: 'Aure_Training_PMCHANCRIN'
+    kubernetesCluster: 'piermickAKS'
     namespace: 'default'
     command: 'apply'
     useConfigurationFile: true
