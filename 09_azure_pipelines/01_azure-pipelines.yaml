@@ -17,7 +17,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       docker build -t piermickregistry.azurecr.io/webapp:$(tag) app-dotnet
-      az acr login -n piermickaks
+      az acr login -n piermickregistry
       docker push piermickregistry.azurecr.io/webapp:$(tag)
 - task: qetza.replacetokens.replacetokens-task.replacetokens@3
   displayName: 'Replace Image TAG'
